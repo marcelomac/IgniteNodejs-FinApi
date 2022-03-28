@@ -28,7 +28,7 @@ describe("Create User", () => {
     expect(userCreated).toHaveProperty("id");
   });
 
-  it("should not be able to create a user with email exists", async () => {
+  it("should not be able to create a user with with already existing email", async () => {
     expect(async () => {
       const user = {
         name: "User Test 1",

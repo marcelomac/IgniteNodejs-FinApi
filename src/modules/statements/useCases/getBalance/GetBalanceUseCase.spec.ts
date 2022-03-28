@@ -14,7 +14,7 @@ let inMemoryUsersRepository: InMemoryUsersRepository;
 let inMemoryStatementRepository: InMemoryStatementsRepository;
 let user: ICreateUserDTO;
 
-describe("Create statement", () => {
+describe("Get balance", () => {
   beforeEach(() => {
     inMemoryUsersRepository = new InMemoryUsersRepository();
     inMemoryStatementRepository = new InMemoryStatementsRepository();

@@ -9,7 +9,7 @@ let createUserUseCase: CreateUserUseCase;
 let showUserProfileUseCase: ShowUserProfileUseCase;
 let user: ICreateUserDTO;
 
-describe("Authenticate user", () => {
+describe("Show a User Profile", () => {
   beforeEach(() => {
     inMemoryUsersRepository = new InMemoryUsersRepository();
     createUserUseCase = new CreateUserUseCase(inMemoryUsersRepository);
