@@ -13,23 +13,40 @@ export class BalanceMap {
         id,
         user_id,
         sender_id,
+        recipient_id,
         amount,
         description,
         type,
         created_at,
         updated_at,
       }) => {
-        
         if (type === "transfer") {
-          return {
-            id,
-            sender_id: user_id,
-            amount: Number(amount),
-            description,
-            type,
-            created_at,
-            updated_at,
-          };
+          if (recipient_id) {
+            //Idrecipient_id.toString().trim() != '')
+
+
+            CORRIGIR sender_id x recipient_id no GetBalance
+
+            return {
+              id,
+              sender_id: user_id,
+              amount: Number(amount),
+              description,
+              type,
+              created_at,
+              updated_at,
+            };
+          } else {
+            return {
+              id,
+              recipient_id: user_id,
+              amount: Number(amount),
+              description,
+              type,
+              created_at,
+              updated_at,
+            };
+          }
         }
 
         return {

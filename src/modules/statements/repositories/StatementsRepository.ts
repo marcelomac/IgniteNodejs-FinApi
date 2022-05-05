@@ -1,4 +1,4 @@
-import { getRepository, Repository } from "typeorm";
+import { Equal, getRepository, Repository } from "typeorm";
 
 import { Statement } from "../entities/Statement";
 import { ICreateStatementDTO } from "../useCases/createStatement/ICreateStatementDTO";
@@ -46,19 +46,13 @@ export class StatementsRepository implements IStatementsRepository {
   }: IGetBalanceDTO): Promise<
     { balance: number } | { balance: number; statement: Statement[] }
   > {
+    // "SELECT * FROM 'statments' WHERE (user_id = :user_id) OR (recipient_id = user_id =)":
     const statement = await this.repository.find({
-      where: { user_id },
-
-      // IMPLEMENTAR:
-      OR recipient_id = user_id
-
-
+      where: [{ user_id }, { recipient_id: Equal(user_id) }],
     });
 
     const balance = statement.reduce((acc, operation) => {
       const userIsRecipient = user_id === operation.recipient_id;
-
-      console.log(userIsRecipient);
 
       if (
         operation.type === "deposit" ||
