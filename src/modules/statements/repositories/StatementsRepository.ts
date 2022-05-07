@@ -46,7 +46,7 @@ export class StatementsRepository implements IStatementsRepository {
   }: IGetBalanceDTO): Promise<
     { balance: number } | { balance: number; statement: Statement[] }
   > {
-    // "SELECT * FROM 'statments' WHERE (user_id = :user_id) OR (recipient_id = user_id =)":
+    //  "SELECT * FROM 'statments' WHERE (user_id = :user_id) OR (recipient_id = user_id =)":
 
     const statement = await this.repository.find({
       where: [{ user_id }, { recipient_id: Equal(user_id) }],
