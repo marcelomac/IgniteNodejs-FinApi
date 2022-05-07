@@ -31,7 +31,6 @@ export class BalanceMap {
             updated_at,
           };
         }
-
         return {
           id,
           amount: Number(amount),

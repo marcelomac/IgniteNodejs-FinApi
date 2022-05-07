@@ -19,8 +19,6 @@ export class CreateStatementController {
       splittedPath.indexOf("statements") + 1
     ] as OperationType;
 
-    console.log(recipient_id);
-
     const createStatement = container.resolve(CreateStatementUseCase);
 
     const statement = await createStatement.execute({
